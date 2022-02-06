@@ -1,0 +1,15 @@
+C:\Users\lband\source\repos\PigLatinCapstone\PigLatinCapstone\bin\Debug\net6.0\PigLatinCapstone.exe
+C:\Users\lband\source\repos\PigLatinCapstone\PigLatinCapstone\bin\Debug\net6.0\PigLatinCapstone.deps.json
+C:\Users\lband\source\repos\PigLatinCapstone\PigLatinCapstone\bin\Debug\net6.0\PigLatinCapstone.runtimeconfig.json
+C:\Users\lband\source\repos\PigLatinCapstone\PigLatinCapstone\bin\Debug\net6.0\PigLatinCapstone.dll
+C:\Users\lband\source\repos\PigLatinCapstone\PigLatinCapstone\bin\Debug\net6.0\ref\PigLatinCapstone.dll
+C:\Users\lband\source\repos\PigLatinCapstone\PigLatinCapstone\bin\Debug\net6.0\PigLatinCapstone.pdb
+C:\Users\lband\source\repos\PigLatinCapstone\PigLatinCapstone\obj\Debug\net6.0\PigLatinCapstone.csproj.AssemblyReference.cache
+C:\Users\lband\source\repos\PigLatinCapstone\PigLatinCapstone\obj\Debug\net6.0\PigLatinCapstone.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lband\source\repos\PigLatinCapstone\PigLatinCapstone\obj\Debug\net6.0\PigLatinCapstone.AssemblyInfoInputs.cache
+C:\Users\lband\source\repos\PigLatinCapstone\PigLatinCapstone\obj\Debug\net6.0\PigLatinCapstone.AssemblyInfo.cs
+C:\Users\lband\source\repos\PigLatinCapstone\PigLatinCapstone\obj\Debug\net6.0\PigLatinCapstone.csproj.CoreCompileInputs.cache
+C:\Users\lband\source\repos\PigLatinCapstone\PigLatinCapstone\obj\Debug\net6.0\PigLatinCapstone.dll
+C:\Users\lband\source\repos\PigLatinCapstone\PigLatinCapstone\obj\Debug\net6.0\ref\PigLatinCapstone.dll
+C:\Users\lband\source\repos\PigLatinCapstone\PigLatinCapstone\obj\Debug\net6.0\PigLatinCapstone.pdb
+C:\Users\lband\source\repos\PigLatinCapstone\PigLatinCapstone\obj\Debug\net6.0\PigLatinCapstone.genruntimeconfig.cache
