@@ -6,20 +6,36 @@ internal class Program
 {
     static void Main(string[] args)
     {
-
-
-
-        // intro message
-        Console.WriteLine("Welcome to the Pig Latin Translator!");
-        Console.WriteLine();
-        // user input
-        Console.Write("Enter a line to be translated: ");
-        string englishInput = Console.ReadLine().ToLower();
-        // displaying translation (output)
-        string pigLatinOutput = TranslateLine(englishInput);
-        Console.WriteLine();
-        Console.WriteLine("Translation: " + pigLatinOutput);
-        Console.WriteLine();
+        bool runProgram = true;
+        while (runProgram)
+        {
+            // intro message
+            Console.WriteLine("Welcome to the Pig Latin Translator!");
+            Console.WriteLine();
+            // user input
+            Console.Write("Enter a line to be translated: ");
+            string englishInput = Console.ReadLine().ToLower();
+            // displaying translation (output)
+            string pigLatinOutput = TranslateLine(englishInput);
+            Console.WriteLine();
+            Console.WriteLine("Translation: " + pigLatinOutput);
+            Console.WriteLine();
+            while (true)
+            {
+                Console.WriteLine("Would you like to translate again? y/n");
+                string loopChoice = Console.ReadLine().ToLower();   
+                if (loopChoice == "y")
+                {
+                    runProgram = true;
+                    break;
+                }
+                else if (loopChoice == "n")
+                {
+                    runProgram= false;
+                    break;
+                }
+            }
+        }
     }
 
     /// <summary> Gets first vowel index in word/line </summary>
@@ -91,11 +107,34 @@ internal class Program
         string input = englishLine;
         string[] tempInput = input.Split(' ');
 
+        if (ContainsSymbols(englishLine) || ContainsNumbers(englishLine))
+        {
+            return "Inncorrect Input";
+        }
+
         for (int i = 0; i < tempInput.Length; i++)
         {
             translation = translation + TranslateWord(tempInput[i]) + " ";
         }
         return translation;
+    }
+
+    /// <summary> checks word/line for symbols </summary>
+    static bool ContainsSymbols(string englishLine)
+    {
+        for(int i = 0; i < englishLine.Length; i++)
+        {
+            if(englishLine.Substring(i,1) == "@" || englishLine.Substring(i, 1) == "#" || englishLine.Substring(i, 1) == "*" || englishLine.Substring(i, 1) == "%" || englishLine.Substring(i, 1) == "&")
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    static bool ContainsNumbers(string englishLine)
+    {
+        return englishLine.Any(char.IsDigit);
     }
 
     /// <summary> tests code </summary>
@@ -108,6 +147,8 @@ internal class Program
         Console.WriteLine("-1: " + GetVowelPosition("P"));
         Console.WriteLine("7: " + GetVowelPosition("PPPPPPPO"));
     }
+
+
 }
 
 
