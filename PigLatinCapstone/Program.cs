@@ -6,16 +6,24 @@ internal class Program
 {
     static void Main(string[] args)
     {
+
+
+
         // intro message
         Console.WriteLine("Welcome to the Pig Latin Translator!");
         Console.WriteLine();
         // user input
         Console.Write("Enter a line to be translated: ");
-        string englishWord = Console.ReadLine().ToLower();
+        string englishInput = Console.ReadLine().ToLower();
         // displaying translation (output)
-        Console.WriteLine("Translation: " + TranslateWord(englishWord));
+        string pigLatinOutput = TranslateLine(englishInput);
+        Console.WriteLine();
+        Console.WriteLine("Translation: " + pigLatinOutput);
         Console.WriteLine();
     }
+
+    /// <summary> Gets first vowel index in word/line </summary>
+    /// <returns> -1 if not found </returns>
     static int GetVowelPosition(string word)
     {
         int VowelPosition = -1;
@@ -24,8 +32,12 @@ internal class Program
             VowelPosition = VowelPosition + 1;
             if (letter == 'a' || letter == 'e' || letter == 'i' || letter == 'o' || letter == 'u')
             {
-                break;
+                return VowelPosition;
             }
+            //if (VowelPosition > word.Length)
+            //{
+            //    return -1;
+            //}
         }
         return VowelPosition;
     }
@@ -57,11 +69,44 @@ internal class Program
                 afterLetters = englishWord.Substring(2);
                 pigLatinWord = afterLetters + beginningLetters + "ay";
                 break;
+            case 3:
+                beginningLetters = englishWord.Substring(0, 3);
+                afterLetters = englishWord.Substring(3);
+                pigLatinWord = afterLetters + beginningLetters + "ay";
+                break;
             default:
-                pigLatinWord = "Sorry, unable to translate that word.";
+                pigLatinWord = englishWord;
+                Console.WriteLine("\tUnable to translate " + englishWord);
                 break;
         }
         return pigLatinWord;
+    }
+
+    /// <summary> Translates english line into pig latin </summary>
+    /// <param name="english"></param>
+    /// <returns></returns>
+    static string TranslateLine(string englishLine)
+    {
+        string translation = "";
+        string input = englishLine;
+        string[] tempInput = input.Split(' ');
+
+        for (int i = 0; i < tempInput.Length; i++)
+        {
+            translation = translation + TranslateWord(tempInput[i]) + " ";
+        }
+        return translation;
+    }
+
+    /// <summary> tests code </summary>
+    static void Test()
+    {
+        Console.WriteLine(GetVowelPosition("poops"));
+        Console.WriteLine("2: " + GetVowelPosition("PPO"));
+        Console.WriteLine("3: " + GetVowelPosition("PPPO"));
+        Console.WriteLine("4: " + GetVowelPosition("PPPPO"));
+        Console.WriteLine("-1: " + GetVowelPosition("P"));
+        Console.WriteLine("7: " + GetVowelPosition("PPPPPPPO"));
     }
 }
 
