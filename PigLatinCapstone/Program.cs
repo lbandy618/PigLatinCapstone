@@ -1,6 +1,7 @@
 ﻿using System;
 
 namespace PigLatinCaptsone;
+
 internal class Program
 {
     static void Main(string[] args)
@@ -11,20 +12,33 @@ internal class Program
         // user input
         Console.Write("Enter a line to be translated: ");
         string englishWord = Console.ReadLine().ToLower();
-        // vowel checker
-        int VowelPosition = GetVowelPosition(englishWord);
-        //foreach (char letter in englishWord)
-        //{
-        //    VowelPosition = VowelPosition + 1;
-        //    if (letter == 'a' || letter == 'e' || letter == 'i' || letter == 'o' || letter == 'u')
-        //    {
-        //        break;
-        //    }
-        //}
-        // conditionals 
+        // displaying translation (output)
+        Console.WriteLine("Translation: " + TranslateWord(englishWord));
+        Console.WriteLine();
+    }
+    static int GetVowelPosition(string word)
+    {
+        int VowelPosition = -1;
+        foreach (char letter in word)
+        {
+            VowelPosition = VowelPosition + 1;
+            if (letter == 'a' || letter == 'e' || letter == 'i' || letter == 'o' || letter == 'u')
+            {
+                break;
+            }
+        }
+        return VowelPosition;
+    }
+
+    /// <summary>  will translate the english word into pig latin. </summary>
+    /// <param name="englishWord"></param>
+    /// <returns></returns>
+    static string TranslateWord(string englishWord)
+    {
         string pigLatinWord = "";
         string beginningLetters = "";
         string afterLetters = "";
+        int VowelPosition = GetVowelPosition(englishWord);
         switch (VowelPosition)
         {
             case 0:
@@ -47,21 +61,8 @@ internal class Program
                 pigLatinWord = "Sorry, unable to translate that word.";
                 break;
         }
-        // displaying translation (output)
-        Console.WriteLine("Translation: " + pigLatinWord);
-        Console.WriteLine();
-    }
-    static int GetVowelPosition(string word)
-    {
-        int VowelPosition = -1;
-        foreach (char letter in word)
-        {
-            VowelPosition = VowelPosition + 1;
-            if (letter == 'a' || letter == 'e' || letter == 'i' || letter == 'o' || letter == 'u')
-            {
-                break;
-            }
-        }
-        return VowelPosition;
+        return pigLatinWord;
     }
 }
+
+
